@@ -1,0 +1,58 @@
+<!-- Content Header (Page header) -->
+<section class="content-header" ng-init="getItem()">
+    <h1>
+        Detail 
+        <small>Item</small>
+        <a class="btn btn-primary" href="#/items/edit/{{item._id}}">Edit</a> | <a class="btn btn-danger" href="#" ng-click="removeItem(item._id)">Delete</a>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/transactions"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">items</li>
+    </ol>
+</section>
+<!-- Main content -->
+<!-- Your Page Content Here -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Data</h3>
+                </div>
+                <!-- /.box-header -->
+                <hr>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Nama</label>
+                            <div class="col-sm-2">:</div>
+                            <div class="col-sm-8">
+                                {{item.name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Deskripsi</label>
+                            <div class="col-sm-2">:</div>
+                            <div class="col-sm-8">
+                                {{item.description}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Kategori</label>
+                            <div class="col-sm-2">:</div>
+                            <div class="col-sm-8">
+                                {{item.category.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <a class="btn btn-info" href="#/items">Go Back</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,95 @@
+<!-- Content Header (Page header) -->
+<section class="content-header" ng-init="getSummaryTransactionsToday()">
+    <h1>
+        Summary 
+        <small>Transactions</small>
+        <a class="btn btn-success" href="#/transactions/add">Add New</a>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/transactions"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">transactions</li>
+    </ol>
+</section>
+<!-- Main content -->
+<!-- Your Page Content Here -->
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Data</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Summary :</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model="transaction_date" placeholder="Tanggal Transaksi" id="datepicker" readonly="true">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info pull-right" id="summary_date">View</button>
+                </form>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+        <hr>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Item</th>
+                        <th>Kategori</th>
+                        <th>Total Quantity</th>
+                        <th>AVG Harga Beli</th>
+                        <th>AVG Harga Jual TR</th>
+                        <th>AVG Harga Jual Direct</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transaction in transactions track by $index">
+                        <td ng-init="getItemId(transaction)">{{$index+1}}</td>
+                        <td>{{transaction.item.name}}</td>
+                        <td>{{transaction.item.category.name}}</td>
+                        <td>{{transaction.total_qty}}</td>
+                        <td>{{transaction.avg_buying_price}}</td>
+                        <td>{{transaction.avg_selling_price_TR}}</td>
+                        <td>{{transaction.avg_selling_price_direct}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+</section>
+<script type="text/javascript">
+$(function() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    var today = dd + "-" + mm + "-" + yyyy;
+    $('#datepicker').val(today);
+    $('#summary_date').on('click', function() {
+        if ($('#datepicker').val() == '') {
+            var _date = today;
+        } else {
+            var _date = $('#datepicker').val();
+        }
+        console.log(_date);
+        window.location = "/#/summary/transaction/" + _date;
+    });
+    $("#select2").select2();
+    $('#datepicker').datepicker({
+        autoclose: true,
+        format: "dd-mm-yyyy"
+    });
+});
+</script>

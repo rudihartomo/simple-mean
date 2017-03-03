@@ -1,0 +1,40 @@
+<!-- Content Header (Page header) -->
+<section class="content-header" ng-init="getCategory()">
+    <h1>
+        Detail 
+        <small>Categories</small>
+        <a class="btn btn-primary" href="#/categories/edit/{{category._id}}">Edit</a> | <a class="btn btn-danger" href="#" ng-click="removeCategory(category._id)">Delete</a>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/transactions"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">categories</li>
+    </ol>
+</section>
+<!-- Main content -->
+<!-- Your Page Content Here -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Data</h3>
+                </div>
+                <!-- /.box-header -->
+                <hr>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Nama</label>
+                            <div class="col-sm-2">:</div>
+                            <div class="col-sm-8">
+                                {{category.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <a class="btn btn-info" href="#/categories">Go Back</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,82 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Edit
+        <small>Transaction</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/transactions"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Transaction</li>
+    </ol>
+</section>
+<!-- Main content -->
+<!-- Your Page Content Here -->
+<section class="content">
+    <div class="col-md-6">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Form</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" ng-submit="updateTransaction()" ng-init="getTransaction()">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Item</label>
+                        <div ng-init="getItems()" class="col-sm-8">
+                            <select class="form-control" ng-model="transaction.item" ng-options="item.name for item in items" id="select2">
+                                <option value="">-- Select Item --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Tanggal Transaksi</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-model="transaction.transaction_date" placeholder="Tanggal Transaksi" id="datepicker" readonly="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Quantity</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-model="transaction.qty" placeholder="Quantity">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Harga Beli</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-model="transaction.buying_price" placeholder="Harga Beli">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Harga Jual TR</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-model="transaction.selling_price_TR" placeholder="Harga Jual TR">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Harga Jual Direct</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-model="transaction.selling_price_direct" placeholder="Harga Jual Direct">
+                        </div>
+                    </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <a href="#/transactions" class="btn btn-default">Cancel</a>
+                    <button type="submit" class="btn btn-info pull-right">Update</button>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+        <!-- /.box -->
+    </div>
+</section>
+<script type="text/javascript">
+    $(function() {
+        $("#select2").select2();
+        $('#datepicker').datepicker({
+            autoclose: true,
+            format: "dd-mm-yyyy"
+        });
+    });
+</script>

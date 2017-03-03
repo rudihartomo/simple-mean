@@ -1,0 +1,42 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Add
+        <small>Category</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/transactions"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">categories</li>
+    </ol>
+</section>
+<!-- Main content -->
+<!-- Your Page Content Here -->
+<section class="content">
+    <div class="col-md-6">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Form</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" ng-submit="addCategory()">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="category.name" placeholder="nama">
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <a href="#/categories" class="btn btn-default">Cancel</a>
+                    <button type="submit" class="btn btn-info pull-right">Save</button>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+        <!-- /.box -->
+    </div>
+</section>

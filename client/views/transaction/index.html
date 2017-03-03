@@ -1,0 +1,54 @@
+<!-- Content Header (Page header) -->
+<section class="content-header"  ng-init="getTransactions()">
+    <h1>
+        All 
+        <small>Transactions</small>
+        <a class="btn btn-success" href="#/transactions/add">Add New</a>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#/transactions"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">transactions</li>
+    </ol>
+</section>
+<!-- Main content -->
+<!-- Your Page Content Here -->
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Data</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal Transaksi</th>
+                        <th>Item</th>
+                        <th>Kategori</th>
+                        <th>Quantity</th>
+                        <th>Harga Beli</th>
+                        <th>Harga Jual TR</th>
+                        <th>Harga Jual Direct</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transaction in transactions track by $index" ">
+                        <td>{{$index+1}}</td>
+                        <td>{{transaction.transaction_date}}</td>
+                        <td>{{transaction.item.name}}</td>
+                        <td>{{transaction.item.category.name}}</td>
+                        <td>{{transaction.qty}}</td>
+                        <td>{{transaction.buying_price}}</td>
+                        <td>{{transaction.selling_price_TR}}</td>
+                        <td>{{transaction.selling_price_direct}}</td>
+                        <td><a href="#/transactions/edit/{{transaction._id}}">Edit</a> | <a href="#" ng-click="removeTransaction(transaction._id)">Delete</a></td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+</section> 
+

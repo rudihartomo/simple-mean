@@ -1,0 +1,40 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Page Header
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+</section>
+<!-- Main content -->
+<!-- Your Page Content Here -->
+<section class="content">
+    <a href="#/transactions">Go Back</a>
+    <div class="panel panel-default" ng-init="getTransaction()">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{transaction.title}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-group">
+                        <li class="list-group-item"><b>Transaction Date: </b>{{transaction.transaction_date}}</li>
+                        <li class="list-group-item"><b>Item: </b>{{transaction.item.name}}</li>
+                        <li class="list-group-item"><b>Category: </b>{{transaction.item.category.name}}</li>
+                        <li class="list-group-item"><b>Quantity: </b>{{transaction.qty}}</li>
+                        <li class="list-group-item"><b>Harga Beli: </b>{{transaction.buying_price}}</li>
+                        <li class="list-group-item"><b>Harga Jual TR: </b>{{transaction.selling_price_TR}}</li>
+                        <li class="list-group-item"><b>Harga Jual Direct: </b>{{transaction.selling_price_direct}}</li>
+                        <li class="list-group-item"><b>Dibuat: </b>{{transaction.create_date}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pull-right">
+        <a href="#/transactions/edit/{{transaction._id}}">Edit</a> | <a href="#" ng-click="removeTransaction(transaction._id)">Delete</a>
+    </div>
+</section>
